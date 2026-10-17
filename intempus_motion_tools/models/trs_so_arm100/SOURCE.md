@@ -1,0 +1,7 @@
+# SO-100 model source
+
+This model is derived from [MuJoCo Menagerie's `trs_so_arm100`](https://github.com/google-deepmind/mujoco_menagerie/tree/62ab00f2bc44f6f20c1c9b7a13f3fb1dd41a4e35/trs_so_arm100), which credits [The Robot Studio](https://www.therobotstudio.com/) and its [SO-ARM100 URDF](https://github.com/TheRobotStudio/SO-ARM100/blob/4e9c5588d8a8415b6a6c2142a0ce8c32207cf3e9/URDF/SO_5DOF_ARM100_8j_URDF.SLDASM/urdf/SO_5DOF_ARM100_8j_URDF.SLDASM.urdf). It remains under the supplied [Apache-2.0 license](LICENSE), separately from the editor's code license.
+
+The Menagerie commit above is a verified reference, not a known original import commit. On 2026-10-17, the inherited README, CHANGELOG and LICENSE matched that reference exactly. All thirteen OBJ meshes used by `so_arm100.xml` have the same unique vertex coordinates as the corresponding upstream STL meshes when rounded to eight decimal places. Their headers identify Trimesh as the conversion tool.
+
+Local changes include STL-to-OBJ conversion, altered joint and dynamics settings, motor actuators in place of position actuators, and a floor inside `so_arm100.xml`. The redundant floor in `scene.xml` was removed on 2026-10-17 so the combined scene loads. These changes are not part of the upstream model's changelog. The editor uses this variant for kinematic pose preview by setting joint positions and calling `mj_forward`; it does not validate a robot controller or physical behavior.

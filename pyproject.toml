@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "intempus-motion-tools"
+version = "0.1.0"
+description = "Joint keyframe editing and transition curves"
+requires-python = ">=3.10"
+license = "MIT AND Apache-2.0"
+license-files = ["LICENSE", "intempus_motion_tools/models/trs_so_arm100/LICENSE"]
+readme = "README.md"
+
+[project.optional-dependencies]
+editor = ["mujoco>=3.1.6,<4", "Pillow>=10,<14"]
+
+[project.scripts]
+intempus-motion-editor = "intempus_motion_tools.editor:main"
+
+[project.urls]
+Repository = "https://github.com/Intempus-Inc/motion-tools"
+
+[tool.setuptools.packages.find]
+include = ["intempus_motion_tools*"]
+
+[tool.setuptools.package-data]
+intempus_motion_tools = ["models/trs_so_arm100/*.xml", "models/trs_so_arm100/LICENSE", "models/trs_so_arm100/SOURCE.md", "models/trs_so_arm100/assets/*.obj"]
